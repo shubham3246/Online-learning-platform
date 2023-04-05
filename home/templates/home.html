@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block start %}
+
+
+
+<h2 class="text-center my-3 py-3">🅾🆄🆁 🅲🅾🆄🆁🆂🅴🆂</h2>
+<div class="container mt-4 " >
+      <div class="row d-flex justify-content-center">
+        {% for c in course %}
+            <div class="card m-3" style="width: 18rem; height: 30rem; overflow: hidden;">
+               
+                <img class="card-img-top" style="height: 170px; object-fit:cover" src="/media/{{c.course_image}}" alt="Card image cap">
+              
+                <div class="card-body">
+                  {% if c.is_premium %}
+                  <span class="badge badge-success">Premium</span>
+                  {% else %}
+                  <span class="badge badge-danger">Free</span>
+                  {% endif %}
+                  <a href="{% url 'course' c.slug %}">
+                    <h5 class="card-title text-dark"><b>{{c.course_name}}</b></h5>
+                  </a>
+                
+                  <p class="card-text">{{c.course_description |safe | truncatechars:170}}</p>
+                  
+                </div>
+                <div class="button1 d-flex justify-content-center pb-3"><a href="{% url 'course' c.slug %}" class="btn btn-primary">View Course</a></div>
+            </div>
+            {% endfor %}
+      </div>
+        
+  </div> 
+
+
+
+  <div class="b-example-divider"></div>
+  <div class="container ">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-dark">About</a></li>
+      </ul>
+      <p class="text-center text-muted">Copyright for Gautam singh | Allright Resive 2023</p>
+    </footer>
+
+  </div>
+
+
+  {% endblock %}
