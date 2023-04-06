@@ -49,7 +49,8 @@ def home(request):
 def about(request):
     # return HttpResponse("Hello, world. You're at the about.(/about)")
     return render(request, 'about.html')
-@csrf_protect
+
+
 def contact(request):
     if request.method == "POST":
         name = request.POST['name']
@@ -98,7 +99,7 @@ def view_course(request, slug):
     context = {'course': course, 'course_modules': course_modules, 'link':link}
     return render(request, 'course.html', context)
 
-@csrf_protect
+
 @login_required(login_url='/login/')
 def become_pro(request):
     if request.method == 'POST':
@@ -146,7 +147,7 @@ def become_pro(request):
 def charge(request):
     return render(request, 'charge.html')
 
-@csrf_protect
+
 def login_attempt(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -168,7 +169,7 @@ def login_attempt(request):
                 return redirect('home')
     return render(request, 'login.html')
 
-@csrf_protect
+
 def signup(request):
     if request.method == "POST":
         username = request.POST.get('username')
