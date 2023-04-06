@@ -10,6 +10,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from .models import Course
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 
