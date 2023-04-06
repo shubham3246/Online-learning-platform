@@ -35,14 +35,14 @@
             </li>
           
           </ul>
-          <form method="get" action="/search" class="form-inline my-2 my-lg-0 mx-3">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query"
-              id="query">
-            <button class="btn btn-outline-success mr-2 "src="/search" type="submit">Search</button>
+          <form method="get" action="/search" class="form-inline d-flex justify-content-center">
+            <input class="form-control my-2 mx-2" type="search" placeholder="Search" aria-label="Search" name="query"
+              id="query"> 
+            <button class="btn btn-outline-success my-2 mx-2" src="/search" type="submit">Search</button>
             {% comment %} <a href="/admin" role="button" target="_blank" class="btn btn-outline-success"> Admin Panel </a> {% endcomment %}
           </form>
 
-          <form class="form-inline">
+          <form class="form-inline d-flex justify-content-center">
             {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}" class="btn btn-outline-success mr-2">Logout</a>
             {% else %}
@@ -54,7 +54,7 @@
           {% if request.session.profile %}
             <a href="{% url 'become_pro' %}" class="btn btn-outline-success mr-2">Pro Member</a>
             {% else %}
-            <a href="{% url 'become_pro' %}" class="btn btn-outline-success mr-2">Become Pro</a>
+            <a href="{% url 'become_pro' %}" class="btn btn-outline-success mr-2">Subscription</a>
             {% endif %}
             
 
