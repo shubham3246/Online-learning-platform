@@ -26,11 +26,11 @@ from .models import Course
 
 #     print(context)
 #     return render(request, 'home.html' , context)
-@csrf_protect
+
 def base(request):
     context = {'course' : Course.objects.all()}
     return render(request, context)
-@csrf_protect
+
 def home(request):
     course = Course.objects.all()
     context = {'course': course}
@@ -45,7 +45,7 @@ def home(request):
     context['profile'] = profile  # add profile to context
 
     return render(request, 'home.html', context)
-@csrf_protect
+
 def about(request):
     # return HttpResponse("Hello, world. You're at the about.(/about)")
     return render(request, 'about.html')
@@ -66,7 +66,7 @@ def contact(request):
                 request, "Your message has been successfully sent")
     return render(request, "Contact.html")
 
-@csrf_protect
+
 def search(request):
     query = request.GET['query']
     if len(query) > 78:
@@ -83,7 +83,7 @@ def search(request):
     print(allPosts)
     return render(request, 'search.html', params)
 
-@csrf_protect
+
 def view_course(request, slug):
     course = Course.objects.filter(slug=slug).first()
     course_modules = CourseModule.objects.filter(course=course)
@@ -142,7 +142,7 @@ def become_pro(request):
 
     return render(request, 'become_pro.html')
 
-@csrf_protect
+
 def charge(request):
     return render(request, 'charge.html')
 
@@ -200,7 +200,7 @@ def signup(request):
 
     return render(request, 'register.html')
 
-@csrf_protect
+
 def logout_attempt(request):
     request.session.profile = None
     logout(request)
