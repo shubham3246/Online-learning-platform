@@ -7,7 +7,7 @@
 <div class="container mt-4 " >
       <div class="row d-flex justify-content-center">
         {% for c in course %}
-            <div class="card m-3" style="width: 18rem; height: 30rem; overflow: hidden; background-color:#212930">
+            <div class="card m-3" style="width: 18rem; height: 30rem; overflow: hidden; background-color:#F8F0E3">
                
                 <img class="card-img-top" style="height: 170px; object-fit:cover" src="/media/{{c.course_image}}" alt="Card image cap">
               
@@ -18,7 +18,7 @@
                   <span class="badge badge-danger">Free</span>
                   {% endif %}
                   <a href="{% url 'course' c.slug %}">
-                    <h5 class="card-title text-dark" style="color:#C3C8CD"><b>{{c.course_name}}</b></h5>
+                    <h5 class="card-title text-dark"><b>{{c.course_name}}</b></h5>
                   </a>
                 
                   <p class="card-text">{{c.course_description |safe | truncatechars:170}}</p>
