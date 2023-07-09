@@ -14,20 +14,6 @@ from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 
-
-# def home(request):
-#     course = Course.objects.all()
-#     context = {'course': course}
-#    profile = None
-
-#     if request.user.is_authenticated:
-#         profile = Profile.objects.filter(user=request.user).first()
-#     if profile is not None:
-#         request.session['profile'] = profile.is_pro
-
-#     print(context)
-#     return render(request, 'home.html' , context)
-
 def base(request):
     context = {'course' : Course.objects.all()}
     return render(request, context)
